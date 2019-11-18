@@ -17,7 +17,7 @@
 - 2、[集合](/note/plug/a.md)
 
 > **[其它](/note/mixed/README.md)**
-- 1、[免费搭建属于自己的域名个性邮箱](/note/plug/email1.md)
-- 2、[测试](/note/plug/t1.html)
+- 1、[免费搭建属于自己的域名个性邮箱](/note/mixed/email1.md)
+- 2、[测试](/note/mixed/t1.html)
 
 
