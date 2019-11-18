@@ -1,0 +1,40 @@
+                                            <div style="font-family: " lucida="" grande",="" verdana,="" "microsoft="" yahei";"=""><p style="line-height: 23.8px; margin-bottom: 16px; color: rgb(68, 68, 68);">首先，下载安装<a href="https://www.centos.bz/tag/redis/" rel="noopener" target="_blank" style="outline: none; cursor: pointer; color: rgb(66, 139, 202); background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">redis</a>服务端+客户端</p><pre style="line-height: 20px; white-space: pre-wrap; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 12px; padding: 10px 20px; margin-top: 20px; margin-bottom: 20px; color: rgb(248, 248, 212); background: rgb(74, 74, 74); border-width: initial; border-style: none; border-color: initial;"><code>下载，解压，编译:
+
+$ wget http://download.redis.io/releases/redis-3.2.9.tar.gz
+$ tar xzf redis-3.2.9.tar.gz
+$ cd redis-3.2.9$ make
+
+#二进制文件是编译完成后在src目录下，通过下面的命令启动Redis服务：
+
+$ src/redis-<a href="https://www.centos.bz/tag/server/" rel="noopener" target="_blank" style="outline: none; cursor: pointer; color: rgb(66, 139, 202); background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">server</a>
+#你可以使用内置的客户端命令redis-cli进行使用：
+
+$ src/redis-cli
+    redis&gt; set foo bar
+    OK
+redis&gt; get foo"bar"
+</code></pre><p style="line-height: 23.8px; margin-bottom: 16px; color: rgb(68, 68, 68);">下载安装php-redis扩展： 地址：<a href="https://www.centos.bz/tag/https/" rel="noopener" target="_blank" style="outline: none; cursor: pointer; color: rgb(66, 139, 202); background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">https</a>://<a href="https://www.centos.bz/tag/github/" rel="noopener" target="_blank" style="outline: none; cursor: pointer; color: rgb(66, 139, 202); background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">github</a>.com/phpredis/phpredis/</p><pre style="line-height: 20px; white-space: pre-wrap; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 12px; padding: 10px 20px; margin-top: 20px; margin-bottom: 20px; color: rgb(248, 248, 212); background: rgb(74, 74, 74); border-width: initial; border-style: none; border-color: initial;"><code>$ wget http://pecl.php.net/get/redis-3.1.2.tgz
+$ tar xzf redis-3.1.2.tgz 
+$ cd redis-3.1.2/
+$ phpize
+$ ./configure --with-php-config=/usr/local/php/bin/php-config
+#这里的php-config路径 根据自己实际情况而定
+$  make &amp;&amp; make install
+
+#出现
+#Installing shared extensions:/usr/local/php/lib/php/extensions/no-<a href="https://www.centos.bz/tag/debug/" rel="noopener" target="_blank" style="outline: none; cursor: pointer; color: rgb(66, 139, 202); background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">debug</a>-non-zts-20131226/
+#即为安装成功。
+#打开php.in文件，并添加 extension=redis.so,保存退出即可
+$ vim /usr/local/php/etc/php.ini
+  #文件末尾添加 extension=redis.so
+  #保存退出，
+</code></pre><p style="line-height: 23.8px; margin-bottom: 16px; color: rgb(68, 68, 68);">重启php+<a href="https://www.centos.bz/category/web-server/nginx/" rel="noopener" target="_blank" style="outline: none; cursor: pointer; color: rgb(66, 139, 202); background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">nginx</a>服务，phpinfo中将会出现redis扩展信息</p><p style="line-height: 23.8px; margin-bottom: 16px; color: rgb(68, 68, 68);">测试：</p><p style="line-height: 23.8px; margin-bottom: 16px; color: rgb(68, 68, 68);">启动redis服务，</p><pre style="line-height: 20px; white-space: pre-wrap; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 12px; padding: 10px 20px; margin-top: 20px; margin-bottom: 20px; color: rgb(248, 248, 212); background: rgb(74, 74, 74); border-width: initial; border-style: none; border-color: initial;"><code>$ cd redis-3.1.2
+$ src/redis-server
+</code></pre><p style="line-height: 23.8px; margin-bottom: 16px; color: rgb(68, 68, 68);">编辑test.php测试文件</p><pre style="line-height: 20px; white-space: pre-wrap; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 12px; padding: 10px 20px; margin-top: 20px; margin-bottom: 20px; color: rgb(248, 248, 212); background: rgb(74, 74, 74); border-width: initial; border-style: none; border-color: initial;"><code><!--?php
+$redis = new Redis();
+
+$redis--->connect('127.0.0.1', 6379);
+
+$redis-&gt;set("name", "nango");
+echo $redis-&gt;get('name');
+?&gt;</code></pre></div>                                        
