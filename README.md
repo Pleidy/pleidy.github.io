@@ -6,7 +6,9 @@
 - 昵称：pleidy
 - 邮箱：pleidy@163.com
 
-## 博客
+---
+
+## 挨踢技术
 
 
 > **[PHP](/note/php/README.md)**
