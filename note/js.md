@@ -24,3 +24,11 @@ function  trm(e){
 }
 ```
 
+##### 遍历
+
+```
+$('#id').each(function() {
+
+});
+```
+
