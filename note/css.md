@@ -6,6 +6,8 @@
 outline:none;// 点击隐藏边框
 border: none; // 隐藏边框
 text-align:center;// 内容居中
+
+autocomplete="off"// 禁止弹出浏览器缓存
 ```
 
 ##### 文本溢出
