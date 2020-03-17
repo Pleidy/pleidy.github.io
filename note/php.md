@@ -1,6 +1,30 @@
 ## PHP
 
-提取字符串中图片路径
+##### 二维数组排序
+
+```
+# $data 数组, field_name 字段名
+array_multisort(
+    array_column($data, 'field_name'),
+    SORT_DESC,
+    $data
+);
+```
+
+
+
+##### 转字母大小写
+
+```
+strtoupper();//转大写
+strtolower();//转小写
+usfilst();//字符串首字母大写
+ucwords();//单词首字母大写
+```
+
+
+
+##### 提取字符串中图片路径
 
 ```
 function getImgUrl($content)
@@ -11,7 +35,7 @@ function getImgUrl($content)
 }
 ```
 
-日志记录
+##### 日志记录
 
 ```
 $data = '*';//文本
@@ -29,7 +53,7 @@ fwrite($fp,date("Y-m-d H:i:s").var_export($data,true)."\r\n");//写入文件
 fclose($fp);//关闭资源通道
 ```
 
-将（一维、二维）对象数组转化为数组
+##### 将（一维、二维）对象数组转化为数组
 
 ```
 /**
@@ -53,6 +77,37 @@ fclose($fp);//关闭资源通道
         });
 
         return $data;
+    }
+```
+
+
+
+##### 解析获取某月第几周星期一对应的时间戳
+
+```
+/**
+     * 解析获取某月第几周星期一对应的时间戳
+     * @param $dataTime 3月5周
+     * @return false|int
+     */
+    public function analysisWeek($dataTime)
+    {
+        $data = explode('月', $dataTime);
+        $mouth = $data[0];//月份
+        $data1 = explode('周', $data[1]);
+        $week = $data1[0];//第几周
+
+        $year = date('Y');
+        if (date('m') == 12 && $mouth == 1) {
+            $year = $year + 1;
+        }
+
+        $w = date('w', strtotime(date($year.'-'.$mouth.'-01')));//当月第一天为星期几
+        $day = (int)7*$week - $w - 5;//当周星期对应第几号
+
+        $day = $day > 0 ? $day : -$day;
+
+        return strtotime(date($year.'-'.$mouth.'-'.$day));//推送日期时间戳
     }
 ```
 
