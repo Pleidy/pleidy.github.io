@@ -10,16 +10,26 @@
 
 ## 挨踢技术
 
-
 > **[PHP](/note/php/README.md)**
-- [PHP 获取对应操作系统属性](/note/php/1_system.md)
 
 > **[插件](/note/plug/README.md)**
-- 1、[handsontable 表格插件使用](/note/plug/handsontable.md)
-- 2、[集合](/note/plug/a.md)
 
 > **[其它](/note/mixed/README.md)**
-- 1、[免费搭建属于自己的域名个性邮箱](/note/mixed/email1.md)
-- 2、[测试](/note/mixed/t1.html)
+
+------
+
+- [CMD](/note/cmd.md)
+
+- [CSS](/note/css.md)
+- [Docker](/note/docker.md)
+- [Git](/note/git.md)
+- [Js](/note/js.md)
+- [Laravel](/note/laravel.md)
+- [Mysql](/note/mysql.md)
+  - [SQL](/note/sql.md)
+- [Php](/note/php.md)
+- [Python](/note/python.md)
+- [Redis](/note/redis.md)
+- [Windows](/note/windows.md)
 
 
