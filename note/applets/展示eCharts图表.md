@@ -1,6 +1,8 @@
 ## 展示eCharts图表
 
 > echarts官方网站：https://echarts.apache.org/
+>
+> 注：以下操作需要引入图表文件，json文件引入路径需要满足引入的目标文件
 
 `index.json` 配置如下：
 
