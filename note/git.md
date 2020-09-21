@@ -6,7 +6,13 @@
 ssh root@IP
 ```
 
-##### **基础操作**
+**安装**
+
+```
+centos安装：yum install -y git
+```
+
+##### 基础操作**
 
 ```
 git add *
