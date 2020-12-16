@@ -30,6 +30,7 @@ php artisan queue:work
 
 ```
 php artisan make:job ProcessPodcast
+// job文件会在：app/http/jobs/ProcessPodcast.php
 // 执行后在handle方法中处理任务逻辑，可以以日志打印形式来进行测试
 ```
 
@@ -107,5 +108,6 @@ supervisorctl reload
 
 - 使用`ps -fe | grep supervisord`查看所有启动过的supervisord服务
 
-  
+- 注意查看supervisor所需的系统函数是否被禁用，若禁用则程序会报错
 
+  
