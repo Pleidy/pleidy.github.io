@@ -14,3 +14,9 @@ mysql> quit
 3、注释配置文件中的：skip-grant-tables,重启
 ```
 
+##### **创建视图表**
+
+```
+create view view_table as select * from table;
+```
+

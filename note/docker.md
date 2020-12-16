@@ -28,3 +28,10 @@ docker run -d -it --name lamp -p 80:80 -p 3306:3306 -p 6379:6379 -p9501:9501 -v 
 cd /etc/apache2/sites-available
 ```
 
+##### **centos**
+
+```
+docker安装：curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+docker启动：systemctl start docker
+```
+

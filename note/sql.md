@@ -52,5 +52,28 @@ LENGTH() //计算字符串长度
 SELECT replace(fieldname,' ','') as f FROM `tablename`;
 ```
 
+##### 更新字段大小写
 
+```
+lower()	// 转小写
+upper()	// 转大写
+
+例：update tablename set fieldname = lower(fieldname);
+```
+
+
+
+##### 其它
+
+*数据接数据总量（进入mysql执行）：*
+
+> SELECT sum(n_rows) as rows FROM `innodb_table_stats` where database_name = 数据库名;
+
+
+
+##### **规范**
+
+```
+尽量选择区分度高的列作为索引，区分度的公式是 count(distinct col)/count(*)，表示字段不重复的比例，比例越大我们扫描的记录数越少，
+```
 
