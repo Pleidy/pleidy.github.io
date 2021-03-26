@@ -7,10 +7,9 @@
 1. 将下载的websocketd包解压，包类型根据不同系统而定
 
    ```
-   # 解压
-   unzip websocketd-0.3.0-linux_amd64
+   $ unzip websocketd-0.3.0-linux_amd64
    ```
-
+   
 2. 创建监听脚本`socket.sh`：
 
    ```
@@ -18,13 +17,12 @@
    echo "1";
    ```
 
-3. 服务器端开启socket监听
+3. 服务器端开启socket监听，`./websocketd `为解压后的路径，开启的port不能被占用
 
    ```
-   # ./websocketd 为解压后的路径，开启的port不能被占用
-   ./websocketd --port=9501 bash socket.sh
+   $ ./websocketd --port=9501 bash socket.sh
    ```
-
+   
 4. 客户端获取/监听
 
    `test.html`：路径`ws://localhost:9501/`根据实际情况而定
@@ -39,8 +37,8 @@
        <script type="text/javascript">
            var ws = new WebSocket('ws://localhost:9501/');
    
-           ws.onmessage = function(event) {
-               console.log(event.data);
+           ws.onmessage = function(evt) {
+               console.log(evt.data);
            };
        </script>
    </head>
@@ -52,7 +50,7 @@
    **websocketd基本操作**
 
    ```
-   var ws = new WebSocket("wss://echo.websocket.org");
+   var ws = new WebSocket("ws://localhost:9501/");
    
    ws.onopen = function(evt) { 
      console.log("Connection open ..."); 
@@ -94,5 +92,3 @@
    tail -n 0 -f chat.log --pid=$$ | grep --line-buffered -v "] ${USER}>" &
    while read MSG; do echo "[$(date)] ${USER}> ${MSG}" >> chat.log; done
    ```
-
-   
